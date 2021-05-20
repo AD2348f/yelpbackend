@@ -4,9 +4,9 @@ const express = require('express');
 const cors = require('cors');
 
 // const users = require('./api/users');
-const restaurantRouter = require('./api/restaurantRouter');
-const cityRouter = require('./api/cityRouter');
-const tagRouter = require('./api/tagRouter');
+const restaurants = require('./api/restaurants');
+const cities = require('./api/cities');
+const tags = require('./api/tags');
 
 const errorHandler = require('./middlewares/error')
 const connectDB = require('./dbinit');
@@ -18,9 +18,9 @@ app.use(express.json());
 app.get('/', (req, res) => res.send('hello!!!'))
 
 // app.use('/users', users)
-app.use('/restaurant', restaurantRouter);
-app.use('/city', cityRouter);
-app.use('/tag', tagRouter);
+app.use('/restaurants', restaurants);
+app.use('/cities', cities);
+app.use('/tag', tags);
 
 app.use(errorHandler);
 

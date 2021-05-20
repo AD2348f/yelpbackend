@@ -9,7 +9,7 @@ const getCities = async (req, res, next) => {
   }
 };
 
-const getOneCity = async (req, res, next) => {
+const getCity = async (req, res, next) => {
   const { id } = req.params;
   try {
     const targetCity = await City.findById({ _id: id });
@@ -63,7 +63,7 @@ const addRestaurantInCity = async(req, res, next) =>{
 module.exports = {
   getCities,
   createCity,
-  getOneCity,
+  getCity,
   getRestaurantsByCity,
   addRestaurantInCity
 };

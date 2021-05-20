@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getTags, getOneTag, createTag, getRestaurantsByTag} = require('../controllers/tagController');
+const { getTags, getOneTag, createTag, getRestaurantsByTag} = require('../controllers/tags');
 
 router.get('/', getTags);
 router.get('/:id', getOneTag);
