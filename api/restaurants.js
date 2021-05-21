@@ -10,8 +10,7 @@ const {
 
 router
   .route("/")
-  .get(getRestaurants)
-  .get(searchRestaurants);
+  .get(getRestaurants);
 
 router.get("/:id", getOneRestaurant);
 router.post("/", createRestaurant);

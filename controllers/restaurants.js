@@ -4,10 +4,6 @@ const { ObjectId } = mongoose.Types;
 
 const getRestaurants = async(req, res, next) =>{
     try {
-        const { city } = req.params;
-        if (city) next();
-
-        console.log('enter in getrestaurants');
         const getRestaurant = await Restaurant.find().populate('city_id').populate('tag_id');
         res.json(getRestaurant);
     }
@@ -39,30 +35,8 @@ const createRestaurant = async(req,res,next) =>{
     }
 }
 
-// Searchfunction
-/* 
-/cities/:cityId/restaurants
-/restaurants/?city=Berlin
-/restaurants/?city=Berlin&tags=[vegan] 
-/restaurants/?city.name=Berlin
-*/
-const searchRestaurants = async (req, res, next) => {
-    // ?price[lte]=2000
-    try {
-      const { city } = req.params;
-      const queryStr = JSON.stringify(req.query).replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
-  
-      console.log('enter in search');
-      const restaurants = await Restaurant.find({ ...JSON.parse(queryStr) })
-      res.json({ success: true, msg: `restaurants with this city ${city} retrieved`, data: orders })
-    } catch(err) {
-      next(err)
-    }
-  };
-
 module.exports = {
     getRestaurants,
     createRestaurant,
-    getOneRestaurant,
-    searchRestaurants
+    getOneRestaurant
 }

@@ -14,7 +14,7 @@ const restaurantSchema = new Schema({
     required: [true, 'Please add a city'],
   },
   tag_id: {
-    type: mongoose.Schema.ObjectId,
+    type: [mongoose.Schema.ObjectId],
     ref: "Tag",
     required: [true, 'Please add a tag'],
   },
@@ -27,13 +27,7 @@ const restaurantSchema = new Schema({
     min: 0, 
     max: 5,
     required: [true, 'Please add a rating'],
-  },
-/*   comment:[{ 
-    type: mongoose.Schema.ObjectId, 
-    ref: 'Comment', 
-    required: true 
-  }], */
-    // location: {type: pointSchema,required: true}
+  }
 });
 
 module.exports = mongoose.model("Restaurant", restaurantSchema);
