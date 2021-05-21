@@ -25,7 +25,7 @@ app.get('/', (req, res) => res.send('hello!!!'))
 // app.use('/users', users)
 app.use('/restaurants', restaurants);
 app.use('/cities', cities);
-app.use('/tag', tags);
+app.use('/tags', tags);
 
 app.use(errorHandler);
 

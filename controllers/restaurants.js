@@ -2,7 +2,7 @@ const Restaurant = require("../models/Restaurant");
 
 const getRestaurants = async(req, res, next) =>{
     try {
-        const getRestaurant = await Restaurant.find({}).populate('city').populate('tags');
+        const getRestaurant = await Restaurant.find().populate('city_id').populate('tag_id');
         res.json(getRestaurant);
     }
     catch(e){
@@ -13,7 +13,7 @@ const getRestaurants = async(req, res, next) =>{
 const getOneRestaurant = async(req, res, next) =>{
     const { id } = req.params;
     try{
-        const targetRestaurant = await Restaurant.findById({_id : id}).populate('city').populate('tags');
+        const targetRestaurant = await Restaurant.findById({_id : id}).populate('city_id').populate('tag_id');
         if (!targetRestaurant) return res.status(404).send('No such Restaturent')
         res.json(targetRestaurant);
     }
