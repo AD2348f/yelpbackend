@@ -18,6 +18,16 @@ const restaurantSchema = new Schema({
     ref: "Tag",
     required: [true, 'Please add a tag'],
   },
+  description: { 
+    type: String , 
+    required: [true, 'Please add a description'],
+  },
+  stars: {
+    type: Number,
+    min: 0, 
+    max: 5,
+    required: [true, 'Please add a rating'],
+  },
 /*   comment:[{ 
     type: mongoose.Schema.ObjectId, 
     ref: 'Comment', 

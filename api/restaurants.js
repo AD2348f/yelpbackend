@@ -1,10 +1,19 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const {createRestaurent, getRestaurants, getOneRestaurant} = require('../controllers/restaurants');
+const {
+  createRestaurant,
+  getRestaurants,
+  getOneRestaurant,
+  searchRestaurants,
+} = require("../controllers/restaurants");
 
-router.get('/', getRestaurants);
-router.get('/:id', getOneRestaurant); 
-router.post('/', createRestaurent)
+router
+  .route("/")
+  .get(getRestaurants)
+  .get(searchRestaurants);
+
+router.get("/:id", getOneRestaurant);
+router.post("/", createRestaurant);
 
 module.exports = router;
